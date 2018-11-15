@@ -3,8 +3,6 @@ import React from 'react';
 //COMPONENTS
 import MainBox from './MainBox';
 
-
-
 class Location extends React.Component {
 
     constructor(props) {

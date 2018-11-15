@@ -38,13 +38,13 @@ class MainBox extends React.Component {
         // let lat = this.props.user_latitude;
         // let long = this.props.user_longitude;
 
-        var url = new URL(`http://api.mygasfeed.com/stations/radius/29.4980868/-81.24282319999999/10/reg/distance/qye48e5m6h.json?`)
+        let url = new URL(`http://api.mygasfeed.com/stations/radius/29.4980868/-81.24282319999999/10/reg/distance/qye48e5m6h.json?`)
 
         xhr.onload = function (props) {
             if (this.status === 200) {
-                var station_list = JSON.parse(this.response);
+                let station_list = JSON.parse(this.response);
                 console.log(station_list);
-                return (station_list);
+                // return (station_list);
 
 
             } else {
