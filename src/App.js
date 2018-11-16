@@ -7,9 +7,7 @@ import Location from './components/Location';
 
 class App extends React.Component {
 
-
     render() {
-
         return (
             <div>
                 <Header />

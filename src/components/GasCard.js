@@ -1,13 +1,9 @@
 import React from 'react';
 
-
-
 class GasCard extends React.Component {
 
-
     render() {
-        // console.log(this.props.user_latitude);
-        // console.log(this.props);
+
         return (
             <div className='gas_card'>
 

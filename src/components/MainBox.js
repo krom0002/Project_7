@@ -5,7 +5,6 @@ import SelectBox from './SelectBox';
 import ListBox from './ListBox';
 import MapBox from './MapBox';
 
-
 class MainBox extends React.Component {
 
     constructor(props) {
@@ -41,33 +40,28 @@ class MainBox extends React.Component {
         let url = new URL(`http://api.mygasfeed.com/stations/radius/29.4980868/-81.24282319999999/10/reg/distance/qye48e5m6h.json?`)
 
         xhr.onload = function (props) {
+
             if (this.status === 200) {
                 let station_list = JSON.parse(this.response);
                 console.log(station_list);
-                // return (station_list);
-
 
             } else {
                 console.log('no stations recieved');
             }
         }
-        xhr.open('GET', url, true);
 
+        xhr.open('GET', url, true);
         xhr.send();
     }
 
 
     render() {
-
         console.log(this.props.user_latitude);
         console.log(this.props.user_longitude);
-        // console.log(this.props);
-
 
         return (
 
             <div className="main_box">
-
                 <div className='info_box'>
 
                     <SelectBox

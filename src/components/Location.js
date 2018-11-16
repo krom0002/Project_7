@@ -6,25 +6,19 @@ import MainBox from './MainBox';
 class Location extends React.Component {
 
     constructor(props) {
-        super(props)
 
+        super(props)
         this.state = {
 
             user_latitude: undefined,
             user_longitude: undefined,
             // station_list: [this.get_data.station_list]
         }
-
-        // this.setState({
-        //     stations: this.get_data.station_list
-        // });
     }
 
     getMyLocation = async (e) => {
         e.preventDefault();
         const location = window.navigator && window.navigator.geolocation
-
-
 
         if (location) {
             location.getCurrentPosition((position) => {
@@ -43,11 +37,8 @@ class Location extends React.Component {
 
 
     render() {
-
         // console.log(this.state.user_longitude);
         // console.log(this.props);
-
-
         return (
 
             <div>

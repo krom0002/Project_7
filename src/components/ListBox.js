@@ -4,12 +4,7 @@ import GasCard from './GasCard';
 
 class ListBox extends React.Component {
 
-
-
     render() {
-
-        // console.log(this.props.user_latitude);
-        // console.log(this.props);
 
         return (
 
@@ -18,7 +13,6 @@ class ListBox extends React.Component {
                     user_longitude={this.props.user_longitude} />
 
             </div>
-
         )
     }
 }
