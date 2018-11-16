@@ -35,7 +35,6 @@ class Location extends React.Component {
         }
     }
 
-
     render() {
         // console.log(this.state.user_longitude);
         // console.log(this.props);

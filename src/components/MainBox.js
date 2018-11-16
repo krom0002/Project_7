@@ -32,26 +32,30 @@ class MainBox extends React.Component {
     }
 
     get_data = (props) => {
-        let xhr = new XMLHttpRequest();
+        // let xhr = new XMLHttpRequest();
 
-        // let lat = this.props.user_latitude;
-        // let long = this.props.user_longitude;
+        let lat = this.props.user_latitude;
+        let long = this.props.user_longitude;
 
-        let url = new URL(`http://api.mygasfeed.com/stations/radius/29.4980868/-81.24282319999999/10/reg/distance/qye48e5m6h.json?`)
+        let url = new URL(`http://api.mygasfeed.com/stations/radius/${lat}/${long}/10/reg/distance/qye48e5m6h.json?`)
 
-        xhr.onload = function (props) {
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => console.log(data))
 
-            if (this.status === 200) {
-                let station_list = JSON.parse(this.response);
-                console.log(station_list);
+        // xhr.onload = function (props) {
 
-            } else {
-                console.log('no stations recieved');
-            }
-        }
+        //     if (this.status === 200) {
+        //         let station_list = JSON.parse(this.response);
+        //         console.log(station_list);
 
-        xhr.open('GET', url, true);
-        xhr.send();
+        //     } else {
+        //         console.log('no stations recieved');
+        //     }
+        // }
+
+        // xhr.open('GET', url, true);
+        // xhr.send();
     }
 
 
