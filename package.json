@@ -11,6 +11,7 @@
     "react-google-calendar-api": "^1.0.8",
     "react-google-maps": "^9.4.5",
     "react-scripts": "2.1.0",
+    "simple-react-google-maps": "^1.1.1",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
@@ -27,5 +28,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "webpack-manifest-plugin": "^2.0.4"
+  }
 }

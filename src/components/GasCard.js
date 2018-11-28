@@ -1,26 +1,36 @@
 import React from 'react';
 
-class GasCard extends React.Component {
+const GasCard = (props) => {
 
-    render() {
+    let stations = props.stations.map((station) => {
 
-        return (
-            <div className='gas_card'>
+        if (station.length !== 0) {
+            return (
+                <div tabIndex="2" role="feed" className='gas_card' key={station.id}>
+                    <div className='station_info'>
+                        <div className='station_name'>{station.station}</div>
+                        <div className='address'>{station.address}</div>
+                        <div className='city'>{station.city}</div>
+                        <div>distance: {station.distance}</div>
+                    </div>
 
-                <div className='station_info'>
-                    <div className='station_name'>Shell</div>
-                    <div className='address'>123 main st.</div>
-                    <div className='city'>{this.props.user_latitude}</div>
-                </div>
+                    <div tabIndex="3" role="feed" className='gas_prices'>
+                        <div className='regular'>regular: {station.reg_price}</div>
+                        <div className='mid_grade'>mid-grade: {station.mid_price}</div>
+                        <div className='premium'>premium: {station.pre_price}</div>
+                    </div>
+                </div >
+            )
+        } else {
+            console.log("sorry, out of gas")
+            return (<p>sorry, out of gas</p>)
+        }
+    });
 
-                <div className='gas_prices'>
-                    <div className='regular'>regular: $1.50</div>
-                    <div className='mid_grade'>mid-grade: $1.50</div>
-                    <div className='premium'>premium: $1.50</div>
-                </div>
-            </div>
-        )
-    }
+    return (
+        <div>{stations}</div>
+    )
+
 }
 
 export default GasCard;

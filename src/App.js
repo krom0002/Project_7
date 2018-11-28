@@ -2,8 +2,8 @@ import React from 'react';
 
 //COMPONENTS
 import Header from './components/header';
-import Location from './components/Location';
-
+import MainBox from './components/MainBox';
+import Footer from './components/Footer';
 
 class App extends React.Component {
 
@@ -11,7 +11,9 @@ class App extends React.Component {
         return (
             <div>
                 <Header />
-                <Location />
+                {/* <SelectBox /> */}
+                <MainBox />
+                <Footer />
             </div>
         )
     }

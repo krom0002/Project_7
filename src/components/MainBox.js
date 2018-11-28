@@ -1,87 +1,81 @@
 import React from 'react';
 
 //COMPONENTS
-import SelectBox from './SelectBox';
 import ListBox from './ListBox';
 import MapBox from './MapBox';
 
 class MainBox extends React.Component {
 
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
-            name: "",
-            address: "",
-            city: "",
-            station_latitude: undefined,
-            station_longitude: undefined,
-            reg_price: "",
-            mid_price: "",
-            prem_price: "",
-            station_list: []
+            "stations": [],
+            "mile": 0
         };
-        this.get_data = this.get_data.bind(this);
     }
 
-    componentWillReceiveProps(props) {
-        this.get_data(props);
-    }
+    componentDidMount() {
 
-    componentDidMount(porps) {
-        this.setState({station_list: this.get_data.station_list});
-    }
-
-    get_data = (props) => {
-        // let xhr = new XMLHttpRequest();
-
-        let lat = this.props.user_latitude;
-        let long = this.props.user_longitude;
-
-        let url = new URL(`http://api.mygasfeed.com/stations/radius/${lat}/${long}/10/reg/distance/qye48e5m6h.json?`)
+        let url = new URL(`http://api.mygasfeed.com/stations/radius/29.4980868/-81.24282319999999/10/reg/distance/qye48e5m6h.json?`)
 
         fetch(url)
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            .then(res => this.setState({"stations": res.stations}))
+            .catch(error => {console.log("something went wrong: " + error)})
+            .catch(error => window.alert("something went wrong: " + error));
 
-        // xhr.onload = function (props) {
-
-        //     if (this.status === 200) {
-        //         let station_list = JSON.parse(this.response);
-        //         console.log(station_list);
-
-        //     } else {
-        //         console.log('no stations recieved');
-        //     }
-        // }
-
-        // xhr.open('GET', url, true);
-        // xhr.send();
     }
 
+    selectAnswer() {
+
+        let mile = this.refs.mileSelect.value;
+
+        let newStations = this.state.stations.filter(function (station) {
+
+            if (station.distance < mile) {
+                return station;
+            }
+            // mile = 0;
+        });
+        console.log("mile");
+        console.log(this.refs.mileSelect.value);
+
+        this.setState({"stations": newStations, "mile": mile})
+        this.refs.mileSelect.value = "default";
+    }
 
     render() {
-        console.log(this.props.user_latitude);
-        console.log(this.props.user_longitude);
+        console.log("main state");
+        console.log(this.state.stations);
+        console.log("mile");
+        console.log(this.state.mile);
 
         return (
 
             <div className="main_box">
-                <div className='info_box'>
+                <div className='select_box'>
+                    <div className="filter_box">
 
-                    <SelectBox
-                        getMyLocation={this.props.getMyLocation}
-                        user_latitude={this.props.user_latitude}
-                        user_longitude={this.props.user_longitude} />
+                        <select tabIndex="1"
+                            ref="mileSelect"
+                            className="dropdown"
+                            role="menuitem" aria-label="mile selector dropdown"
+                            onChange={(event) => this.selectAnswer()}>
 
-                    <ListBox
-                        user_latitude={this.props.user_latitude}
-                        user_longitude={this.props.user_longitude} />
+                            <option role="menuitem" value="default">Distance Filter</option>
+                            <option role="menuitem" value="2">2 mile</option>
+                            <option role="menuitem" value="4">4 miles</option>
+                            <option role="menuitem" value="6">6 miles</option>
+                        </select>
+                    </div>
                 </div>
 
-                <MapBox
-                    station_list={this.props.station_list}
-                    user_latitude={this.props.user_latitude}
-                    user_longitude={this.props.user_longitude} />
+
+                <div className='info_box'>
+                    <ListBox stations={this.state.stations} />
+                </div>
+
+                <MapBox stations={this.state.stations} />
 
             </div>
         )

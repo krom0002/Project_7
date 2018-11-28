@@ -1,3 +1,15 @@
+##App purpose
+takes user location and provides a map of nearby gas stations
+when station card is clicked the coresponding map marker provides an info window
+when a parameter is selected in the filter menu reults are filtered by distance paramater
+
+
+to start application, navigate to app folder in terminal and enter npm start
+
+
+code by student matt kross
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

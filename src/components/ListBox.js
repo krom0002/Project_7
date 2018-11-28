@@ -9,9 +9,7 @@ class ListBox extends React.Component {
         return (
 
             <div className='list_box'>
-                <GasCard user_latitude={this.props.user_latitude}
-                    user_longitude={this.props.user_longitude} />
-
+                <GasCard stations={this.props.stations} />
             </div>
         )
     }

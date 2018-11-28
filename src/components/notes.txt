@@ -1,0 +1,26 @@
+componentDidMount() {
+        let googleMapsPromise = load_google_maps();
+        let placesPromise = load_places();
+
+        Promise.all([
+            googleMapsPromise,
+            placesPromise
+        ]).then(values => {
+            let google = values[0];
+            let venues = values[1].responce.venues;
+
+            this.google = google;
+            this.markers = [];
+
+            this.props.stations.forEach(station => {
+                let marker = new google.maps.Marker({
+                    position: {lat: station.lat, lng: station.lng},
+                    map: this.map,
+                    station: station,
+                    id: station.id,
+                    // name: venue.name,
+                    animation: google.maps.Animation.DROP
+                });
+            });
+        })
+    }

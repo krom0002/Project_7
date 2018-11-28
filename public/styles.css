@@ -1,32 +1,31 @@
-/* @import url('https://fonts.googleapis.com/css?family=Concert+One');
-
-@font-face {
-    font-family: 'Concert One', cursive;
-    font-style: normal;
-    font-weight: 400;
-    src: url('https://fonts.googleapis.com/css?family=Concert+One');
-} */
 
 body {
 
     margin: 5px;
     font-family: 'Concert One';
-    /* background: gray; */
-    background-color: cadetblue;  
-    
+    background-color: cadetblue;    
 }
 
 header {
     
     text-align: center;
     margin: 5px;
-    padding: 5px;
-   
-    font-family: 'Concert One';
-    
+    padding: 5px;   
+    font-family: 'Concert One';    
     border-style: solid;
     border-color: black;
     background: white;
+}
+
+p {
+
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    background: silver;
+    padding-bottom: 25px;
+    border-style: solid;
+    border-color: black;
 }
 
 .title {
@@ -34,10 +33,7 @@ header {
     color: black;
     font-size: 45px;
     text-align: center;
-    /* background: gray; */
-    background: silver;  
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
-    
+    background: silver;
     padding-bottom: 25px;
     border-style: solid;
     border-color: black;
@@ -48,95 +44,83 @@ header {
 
     color: black;
     font-size: 25px;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     border-style: solid;
     border-color: black;
     margin: 5px;
     padding: 5px;
     display: flex;
     justify-content: space-evenly;   
-    
-    background: white;
-    
+    flex-direction: column;
+    background: white;    
 }
 
 .info_box {
 
     color: black;
     font-size: 25px;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     border-style: solid;
     border-color: black;
     margin: 5px;
     padding: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
-    width: 20%;
-    /* height: 100%; */
-    
     background: silver;
-      
 }
 
 .select_box {
 
     color: black;
     font-size: 25px;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     border-style: solid;
     border-color: black;
     margin: 5px;
-    /* padding: 5px; */
+    padding: 15px;
     text-align: center;
-    background: white;
-    padding-bottom: 15px;
-    
+    background: silver;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;    
 }
 
 .list_box {
 
     color: black;
     font-size: 25px;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     border-style: solid;
     border-color: black;
     margin: 5px;
-    
     background: white;
     text-align: center;
-    /* padding: 5px; */
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
     white-space: nowrap;
-    height: 375px;
-    
 }
 
 .gas_card {
+
     font-size: 15px;
-    
     border-style: solid;
     border-color: black;
     margin: 5px;
     padding: 5px;
-    /* padding-bottom: 15px; */
     background-color: cadetblue;
+    display: inline-block;
 }
 
 .station_info {
+
     font-size: 15px;
     text-align: center;
     border-style: solid;
     border-color: black;
     margin: 2px;
-    /* padding-left: 15px; */
-    /* padding: 5px; */
     padding-bottom: 15px;
     background-color: white;
 }
 
 .gas_prices {
+
     font-size: 15px;
     text-align: center;
     border-style: solid;
@@ -144,7 +128,6 @@ header {
     margin: 2px;
     padding: 5px;
     padding-bottom: 15px;
-    
     background-color: white;
 }
 
@@ -152,15 +135,25 @@ header {
 
     color: black;
     font-size: 25px;
-    /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
     border-style: solid;
     border-color: black;
     margin: 5px;
     padding: 5px;
-    width: 80%;
     height: 100%;
     background: silver;
-    
-    /* background: gray;  */
 }
 
+#map {
+    height: 100vh;
+}
+
+footer {
+    
+    text-align: center;
+    margin: 5px;
+    padding: 5px;   
+    font-family: 'Concert One';    
+    border-style: solid;
+    border-color: black;
+    background: white;
+}
