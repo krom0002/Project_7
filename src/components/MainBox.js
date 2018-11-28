@@ -2,7 +2,7 @@ import React from 'react';
 
 //COMPONENTS
 import ListBox from './ListBox';
-import MapBox from './MapBox';
+import NewMap from './NewMap';
 
 class MainBox extends React.Component {
 
@@ -75,7 +75,13 @@ class MainBox extends React.Component {
                     <ListBox stations={this.state.stations} />
                 </div>
 
-                <MapBox stations={this.state.stations} />
+                <NewMap
+                    stations={this.state.stations}
+                    googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBZLo0MDqJFrhRfDloS2MZtF2lADZEQWkk&v=3.exp&libraries=geometry,drawing,places`}
+                    loadingElement={<div style={{height: `100%`}} />}
+                    containerElement={<div style={{height: `600px`, width: `100%`}} />}
+                    mapElement={<div style={{height: `100%`}} />}
+                />
 
             </div>
         )
